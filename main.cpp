@@ -36,11 +36,13 @@ int main()
         if (words[2]=="China") cities.emplace_back(words[0],words[1],words[2],words[3],words[4]);
     }
     csv_data.close();
+
     std::ofstream outFile;
     outFile.open("china_cities.csv", std::ios::out | std::ios::trunc);
     for (auto & city : cities) {
-        outFile << city.getName() << ',' << city.getProvince() << ',' << city.getNation() << ',' << city.getLongitude() << ',' << city.getAltitude() << std::endl;
+        outFile << city;
     }
     outFile.close();
+
     return 0;
 }

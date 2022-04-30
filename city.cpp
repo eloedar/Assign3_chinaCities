@@ -7,12 +7,6 @@ City::City(const std::__cxx11::basic_string<char> &name, const std::__cxx11::bas
            const std::__cxx11::basic_string<char> &altitude) : name(name), province(province), nation(nation),
                                                                longitude(longitude), altitude(altitude) {}
 
-std::ostream &operator<<(std::ostream &os, const City &city) {
-    os << "name: " << city.name << " province: " << city.province << " nation: " << city.nation << " longitude: "
-       << city.longitude << " altitude: " << city.altitude;
-    return os;
-}
-
 const std::string &City::getName() const {
     return name;
 }
@@ -31,6 +25,12 @@ const std::string &City::getLongitude() const {
 
 const std::string &City::getAltitude() const {
     return altitude;
+}
+
+std::ostream &operator<<(std::ostream &os, const City &city) {
+    os <<  city.name << "," << city.province << "," << city.nation << ","
+       << city.longitude << "," << city.altitude << std::endl;
+    return os;
 }
 
 
